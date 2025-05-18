@@ -1,32 +1,16 @@
-const boxes = document.querySelectorAll(".interactive-box");
-
-boxes.forEach((box) => {
-  box.addEventListener("click", function (e) {
-    boxes.forEach((b) => {
-      if (b !== box) b.classList.remove("expanded");
+<script>
+  function selectBox(box, price) {
+    // Deselect all boxes
+    document.querySelectorAll('.box').forEach(b => {
+      b.classList.remove('selected');
+      b.querySelector('input[type="radio"]').checked = false;
     });
-    box.classList.toggle("expanded");
-    e.stopPropagation();
-  });
 
-  box.querySelectorAll(".color-btn").forEach((btn) => {
-    btn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      box.style.backgroundColor = btn.dataset.color;
-    });
-  });
+    // Select the clicked box
+    box.classList.add('selected');
+    box.querySelector('input[type="radio"]').checked = true;
 
-  box.querySelectorAll(".size-btn").forEach((btn) => {
-    btn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const size = btn.dataset.size;
-      if (size === "small") {
-        box.style.fontSize = "14px";
-      } else if (size === "medium") {
-        box.style.fontSize = "18px";
-      } else {
-        box.style.fontSize = "22px";
-      }
-    });
-  });
-});
+    // Update total price
+    document.getElementById('total').textContent = price.toFixed(2);
+  }
+</script>
