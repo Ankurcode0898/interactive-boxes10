@@ -1,82 +1,111 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4;
-  padding: 40px;
-}
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.interactive-box {
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 8px;
-  transition: all 0.4s ease;
-  cursor: pointer;
-  overflow: hidden;
-  position: relative;
-}
-
-.interactive-box .box-title {
-  font-size: 20px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.box-options {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.4s ease;
-  margin-top: 10px;
-}
-
-.interactive-box.expanded .box-options {
-  max-height: 200px;
-  opacity: 1;
-}
-
-.option-section {
-  margin-top: 10px;
-}
-
-.option-section span {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 14px;
-}
-
-.color-btn {
-  width: 25px;
-  height: 25px;
-  border: none;
-  border-radius: 50%;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.size-btn {
-  padding: 6px 12px;
-  border: none;
-  background-color: #eee;
-  margin-right: 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.size-btn:hover {
-  background-color: #ddd;
-}
+ body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    .title {
+      text-align: center;
+      color: #ff4e8b;
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .box {
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background-color: #fff;
+    }
+    .box:hover {
+      border-color: #ffb6c1;
+      background-color: #fff0f5;
+      box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+    }
+    .box.selected {
+      border-color: #ff4e8b;
+      box-shadow: 0 0 10px rgba(255, 78, 139, 0.4);
+      background-color: #fff0f5;
+    }
+    .box:not(:hover):not(.selected) .options {
+      display: none;
+    }
+    .box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .discount-tag {
+      background: #ff4e8b;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+    .most-popular {
+      position: relative;
+    }
+    .most-popular::before {
+      content: "MOST POPULAR";
+      position: absolute;
+      top: -12px;
+      right: 10px;
+      background: #ff4e8b;
+      color: white;
+      padding: 2px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+    .price {
+      font-weight: bold;
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: gray;
+      margin-left: 5px;
+    }
+    .options {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+    }
+    .options select {
+      padding: 5px;
+      border-radius: 5px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 15px;
+      color: #ff4e8b;
+    }
+    .total {
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .add-to-cart {
+      width: 100%;
+      background: #ff4e8b;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+    .add-to-cart:hover {
+      background: #e94379;
+    }
+    
